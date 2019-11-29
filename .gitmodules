@@ -1,6 +1,3 @@
-[submodule "tests/git_repo"]
-	path = tests/git_repo
-	url = http://git.kernel.org/pub/scm/git/git.git
 [submodule "libgit2"]
 	path = libgit2
 	url = https://github.com/sba1/libgit2.git
