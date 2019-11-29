@@ -9,3 +9,4 @@ dist
 interim-openssl
 libssh2
 ReadMe.plain
+cmake-build-debug

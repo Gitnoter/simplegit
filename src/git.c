@@ -112,7 +112,7 @@ out:
  * @param argv
  * @return
  */
-int main(int argc, char **argv)
+int run(int argc, char **argv)
 {
 	git_repository *repo = NULL;
 	char *cmd;
