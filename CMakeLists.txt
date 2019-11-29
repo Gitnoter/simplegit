@@ -7,6 +7,10 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/libgit2)
 include_directories(${PROJECT_SOURCE_DIR}/libgit2/include)
 find_library(git2 libigt2)
 
+file(GLOB_RECURSE SOURCES src/*.*)
+add_library(${PROJECT_NAME} ${SOURCES})
+target_link_libraries(${PROJECT_NAME} git2 OpenSSL::Crypto)
+
 include_directories(
     ${PROJECT_SOURCE_DIR}/src
     ${PROJECT_SOURCE_DIR}/src/common
@@ -14,11 +18,5 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/src/common/commands
     ${PROJECT_SOURCE_DIR}/src/builtin
 )
-file(GLOB_RECURSE SOURCES src/*.*)
-
-add_library(${PROJECT_NAME} ${SOURCES})
-
-add_executable(${PROJECT_NAME}_exe main.cpp
-    ${SOURCES})
-
-target_link_libraries(${PROJECT_NAME}_exe git2 OpenSSL::Crypto)
+add_executable(${PROJECT_NAME}_exe main.cpp)
+target_link_libraries(${PROJECT_NAME}_exe ${PROJECT_NAME})
