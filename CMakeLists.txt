@@ -11,12 +11,7 @@ file(GLOB_RECURSE SOURCES src/*.*)
 add_library(${PROJECT_NAME} ${SOURCES})
 target_link_libraries(${PROJECT_NAME} git2 OpenSSL::Crypto)
 
-include_directories(
-    ${PROJECT_SOURCE_DIR}/src
-    ${PROJECT_SOURCE_DIR}/src/common
-    ${PROJECT_SOURCE_DIR}/src/common/utils
-    ${PROJECT_SOURCE_DIR}/src/common/commands
-    ${PROJECT_SOURCE_DIR}/src/builtin
-)
+# include simplegit headers
+include_directories(src src/common src/common/utils src/builtin)
 add_executable(${PROJECT_NAME}_exe main.cpp)
 target_link_libraries(${PROJECT_NAME}_exe ${PROJECT_NAME})
